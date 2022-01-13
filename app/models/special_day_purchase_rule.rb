@@ -14,7 +14,7 @@ class SpecialDayPurchaseRule
     self.month = threshold.nil? ? SPECIAL_MONTH : threshold[:month]
   end
 
-  def apply(new_record)
+  def apply(new_record, existing_memory: [])
     date = new_record[:created_at]
     reward = nil
     if date.day == day && date.month == month
